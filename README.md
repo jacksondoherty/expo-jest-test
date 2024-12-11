@@ -1,51 +1,51 @@
-# Welcome to your Expo app 👋
+On `npm run test` we get:
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
-
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
 ```
+ FAIL  __tests__/index.test.ts
+  ● Test suite failed to run
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+    Jest encountered an unexpected token
 
-## Learn more
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
 
-To learn more about developing your project with Expo, look at the following resources:
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+    By default "node_modules" folder is ignored by transformers.
 
-## Join the community
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
 
-Join our community of developers creating universal apps.
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-# expo-jest-test
+    Details:
+
+    /{REDACTED}/expo-jest-test/node_modules/uuid/dist/esm-browser/index.js:1
+    ({"Object.<anonymous>":function(module,exports,require,__dirname,__filename,jest){export { default as v1 } from './v1.js';
+                                                                                      ^^^^^^
+
+    SyntaxError: Unexpected token 'export'
+
+    > 1 | import { Keypair } from "@solana/web3.js";
+        | ^
+      2 |
+      3 | test("test", () => {
+      4 |   const keypair = Keypair.generate();
+
+      at Runtime.createScriptFromCode (node_modules/jest-runtime/build/index.js:1505:14)
+      at Object.<anonymous> (__tests__/index.test.ts:1:1)
+
+ PASS  components/__tests__/ThemedText-test.tsx
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       1 passed, 1 total
+Snapshots:   1 passed, 1 total
+Time:        0.44 s, estimated 1 s
+Ran all test suites.
+```
